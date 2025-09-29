@@ -22,7 +22,7 @@
           margin-bottom: 32px;
         }
         .naive > span {
-          width: 30%;
+          width: 15%;
           display: flex;
           flex-direction: column;
         }
@@ -32,7 +32,7 @@
           margin-bottom: 32px;
         }
         .compare > div > span {
-          width: 30%;
+          width: 15%;
           margin-right: 48px;
           display: flex;
           flex-direction: column;
@@ -43,6 +43,14 @@
         .naive > span > figcaption{
           margin: auto;
         }
+        .per > span {
+          display: flex;
+          justify-content: start;
+        }
+        .per > span > img { 
+          width: 15%;
+          margin-right: 32px;
+        }
         
     </style>
 </head>
@@ -52,8 +60,21 @@
     </header>
     <main>
       <section>
-        <h2>Part 1</h2>
-        <div></div>
+        <h2>Part 1: Perspective and Orthographic Projections</h2>
+        <div class="per">
+          <span>
+            <img src="images/perspective_4.png" />
+            <img src="images/perspective_3.png" />
+          </span>
+          <p>The image on the left was taken from up close (perspective) and the 
+            image on the right was taken from farther back while zooming in,
+            mimicking an orthographic projection. 
+            In the perspective projection, the angle between the red lines
+            and the green lines is greater than the angle in the orthographic projection.
+            This shows that the lines in the orthographic projection converge 
+            noticeably less than in the perspective.
+          </p>
+        </div>
       </section>
       <section>
         <h2>Part 2: Histogram Manipulation & Linear Filtering</h2>
@@ -317,7 +338,7 @@
             <div class="naive">
               <span>
                 <figcaption>Original</figcaption>
-                <img src="images/aniso_1_k30_t5.png "/>
+                <img src="images/aniso_1_k10_t5.png "/>
               </span>
               <span>
                 <figcaption>Exponential (K = 30, iters. = 5)</figcaption>
@@ -349,13 +370,60 @@
               </span>
               <span>
                 <figcaption>Exponential (K = 30, iters. = 5)</figcaption>
-                <img src="images/aniso_5_K30_t5.png "/>
+                <img src="images/aniso_5_k30_t5.png "/>
               </span>
               <span>
                 <figcaption>Reciprocal (K = 30, iters. = 5)</figcaption>
-                <img src="images/aniso_6_K30_t5.png "/>
+                <img src="images/aniso_6_k30_t5.png "/>
               </span>
             </div>
+            <span>The first row in each example has K = 10, the second row has K = 30. 
+              Increasing K changes the threshold on edges that get smoothed. The larger the K value, 
+              the the less protection that edges have from smoothing. <br />
+              As the number of iterations increases, the images become more smoothed overall. It simply 
+              applies the diffusion that many times. Eventually, even with a small K value, 
+              the edges will blur.
+            </span>
+
+            </span>
+          </div>
+          <div>
+            <h3>Question 2: Comparison with Gaussian Smoothing</h3>
+            <div class="naive">
+              <span>
+                <figcaption>Exponential (K = 10, iters. = 5)</figcaption>
+                <img src="images/aniso_2_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Reciprocal (K = 10, iters. = 5)</figcaption>
+                <img src="images/aniso_3_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Gaussian</figcaption>
+                <img src="images/final_1.png"/>
+              </span>
+            </div>
+            <div class="naive">
+              <span>
+                <figcaption>Exponential (K = 10, iters. = 5)</figcaption>
+                <img src="images/aniso_5_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Reciprocal (K = 10, iters. = 5)</figcaption>
+                <img src="images/aniso_6_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Gaussian</figcaption>
+                <img src="images/final_2.png"/>
+              </span>
+            </div>
+            <span>
+              Gaussian filters smooth the entire image by a uniform amount, without any regard for edges.
+              Anisotropic diffusion uses the local gradient to determine 
+              how strong to smooth a region, therefore preserving edges better.
+              Take the skull x-ray image: both images that implemented anistropic diffusion still have
+              clear, sharp edges around the skull, while the gaussian certainly lost some sharpness.
+            </span>
           </div>
         </div>
       </section>
