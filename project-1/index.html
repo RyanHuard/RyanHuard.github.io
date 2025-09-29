@@ -7,7 +7,7 @@
             font-family: Arial, sans-serif;
             color: #444444;
             margin: 32px;
-            background-color: #edeef2;
+            background-color: #fff;
         }
         a {
             color: #2a5db0;
@@ -16,6 +16,34 @@
         a:hover {
             text-decoration: underline;
         }
+        .naive {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 32px;
+        }
+        .naive > span {
+          width: 30%;
+          display: flex;
+          flex-direction: column;
+        }
+        .compare > div {
+          display: flex;
+          justify-content: start;
+          margin-bottom: 32px;
+        }
+        .compare > div > span {
+          width: 30%;
+          margin-right: 48px;
+          display: flex;
+          flex-direction: column;
+        }
+        .compare > div > span > figcaption {
+          margin: auto;
+        }
+        .naive > span > figcaption{
+          margin: auto;
+        }
+        
     </style>
 </head>
 <body>
@@ -23,17 +51,314 @@
         <h1>Project 1</h1>
     </header>
     <main>
-        <h2>Description</h2>
-        <p>This project covers [brief description of what Project 1 is about].</p>
+      <section>
+        <h2>Part 1</h2>
+        <div></div>
+      </section>
+      <section>
+        <h2>Part 2: Histogram Manipulation & Linear Filtering</h2>
+        <div>
+          <div>
+            <h3>Question 1: Histogram Equalization on Provided Images</h3>
+            <img src="images/histogram_1.png" />
+            <img src="images/histogram_2.png" />
+            <img src="images/histogram_3.png" />
+          </div>
+          <div>
+            <h3>Question 2: Histogram Equalization on Own Images</h3>
+            <img src="images/histogram_4.png" />
+            <p>The original image's histogram is dense in the mid-ranges of pixel intensity,
+              with very little, if any, diversity. Equalization expands the range of pixel intensities
+              to the full 0 - 255 range, which significantly improves the image. The silhouette is more clear,
+              the details in the trees and background are more clear, and no details are lost. The quality is much better.  
+            </p>
+          </div>
+          <div>
+            <h3>Question 4: Derivative of Gaussian</h3>
+            <div>
+              <h4>Naive Approach (Two Steps)</h4>
+              <div class="naive">
+                <span>
+                  <figcaption>Original</figcaption>
+                  <img src="images/naive_1.png" />
+                </span>
+                <span>
+                  <figcaption>X-Direction</figcaption>
+                  <img src="images/naive_2.png" />
+                </span>
+                <span>
+                  <figcaption>Y-Direction</figcaption>
+                  <img src="images/naive_3.png" />
+                </span>
+              </div>
+              <div class="naive">
+                <span>
+                  <figcaption>Original</figcaption>
+                  <img src="images/naive_4.png" />
+                </span>
+                <span>
+                  <figcaption>X-Direction</figcaption>
+                  <img src="images/naive_5.png" />
+                </span>
+                <span>
+                  <figcaption>Y-Direction</figcaption>
+                  <img src="images/naive_6.png" />
+                </span>
+              </div>
+              <div class="naive">
+                <span>
+                  <figcaption>Original</figcaption>
+                  <img src="images/naive_7.png" />
+                </span>
+                <span>
+                  <figcaption>X-Direction</figcaption>
+                  <img src="images/naive_8.png" />
+                </span>
+                <span>
+                  <figcaption>Y-Direction</figcaption>
+                  <img src="images/naive_9.png" />
+                </span>
+              </div>
+            </div>
+            <div>
+              <h4>Direct Approach (One step)</h4>
+              <div class="naive">
+                <span>
+                  <figcaption>Original</figcaption>
+                  <img src="images/naive_1.png" />
+                </span>
+                <span>
+                  <figcaption>X-Direction</figcaption>
+                  <img src="images/onestep_2.png" />
+                </span>
+                <span>
+                  <figcaption>Y-Direction</figcaption>
+                  <img src="images/onestep_3.png" />
+                </span>
+              </div>
+              <div class="naive">
+                <span>
+                  <figcaption>Original</figcaption>
+                  <img src="images/naive_4.png" />
+                </span>
+                <span>
+                  <figcaption>X-Direction</figcaption>
+                  <img src="images/onestep_5.png" />
+                </span>
+                <span>
+                  <figcaption>Y-Direction</figcaption>
+                  <img src="images/onestep_6.png" />
+                </span>
+              </div>
+              <div class="naive">
+                <span>
+                  <figcaption>Original</figcaption>
+                  <img src="images/naive_7.png" />
+                </span>
+                <span>
+                  <figcaption>X-Direction</figcaption>
+                  <img src="images/onestep_8.png" />
+                </span>
+                <span>
+                  <figcaption>Y-Direction</figcaption>
+                  <img src="images/onestep_9.png" />
+                </span>
+              </div>
+            </div>
 
-        <h2>Results</h2>
-        <p>Include images, figures, or links to results here.</p>
-
-        <h2>Files</h2>
-        <ul>
-            <li><a href="report.pdf">Project Report (PDF)</a></li>
-            <li><a href="code.zip">Source Code</a></li>
-        </ul>
+            <div>
+              <h4>Comparison</h4>
+              <div class="compare">
+                <div>
+                  <span>
+                    <figcaption>X-Direction (Naive)</figcaption>
+                    <img src="images/naive_2.png" />
+                  </span>
+                  <span>
+                    <figcaption>X-Direction (One-Step)</figcaption>
+                    <img src="images/onestep_2.png" />
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <figcaption>Y-Direction (Naive)</figcaption>
+                    <img src="images/naive_3.png" />
+                  </span>
+                  <span>
+                    <figcaption>Y-Direction (One-Step)</figcaption>
+                    <img src="images/onestep_3.png" />
+                  </span>
+                </div>
+              </div>
+              <div class="compare">
+                <div>
+                  <span>
+                    <figcaption>X-Direction (Naive)</figcaption>
+                    <img src="images/naive_5.png" />
+                  </span>
+                  <span>
+                    <figcaption>X-Direction (One-Step)</figcaption>
+                    <img src="images/onestep_5.png" />
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <figcaption>Y-Direction (Naive)</figcaption>
+                    <img src="images/naive_6.png" />
+                  </span>
+                  <span>
+                    <figcaption>Y-Direction (One-Step)</figcaption>
+                    <img src="images/onestep_6.png" />
+                  </span>
+                </div>
+              </div>
+              <div class="compare">
+                <div>
+                  <span>
+                    <figcaption>X-Direction (Naive)</figcaption>
+                    <img src="images/naive_8.png" />
+                  </span>
+                  <span>
+                    <figcaption>X-Direction (One-Step)</figcaption>
+                    <img src="images/onestep_8.png" />
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <figcaption>Y-Direction (Naive)</figcaption>
+                    <img src="images/naive_9.png" />
+                  </span>
+                  <span>
+                    <figcaption>Y-Direction (One-Step)</figcaption>
+                    <img src="images/onestep_9.png" />
+                  </span>
+                </div>
+              </div>
+              <p>The two step approach vs the one step approach are nearly identical. They are equivalent because convolution has the associative property.
+                However, the blacks and whites are inverted between the one step and two step approach. I believe this is because how I took the derivative.
+                 This doessn't affect the quality of information about the edges in the image.
+              </p>
+            </div>
+          </div>
+          <div>
+            <h3>Question 5: Image Sharpening</h3>
+            <div>
+              <div class="compare">
+                <div>
+                  <span>
+                    <figcaption>Original</figcaption>
+                    <img src="images/sharpen_1.png" />
+                  </span>
+                  <span>
+                    <figcaption>Sharpened (α = 5)</figcaption>
+                    <img src="images/sharpen_2.png" />
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <figcaption>Original</figcaption>
+                    <img src="images/sharpen_3.png" />
+                  </span>
+                  <span>
+                    <figcaption>Sharpened</figcaption>
+                    <img src="images/sharpen_4.png" />
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <figcaption>Original</figcaption>
+                    <img src="images/sharpen_5.png" />
+                  </span>
+                  <span>
+                    <figcaption>Sharpened (α = 5)</figcaption>
+                    <img src="images/sharpen_6.png" />
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <figcaption>Original</figcaption>
+                    <img src="images/sharpen_7.png" />
+                  </span>
+                  <span>
+                    <figcaption>Sharpened (α = 5)</figcaption>
+                    <img src="images/sharpen_8.png" />
+                  </span>
+                </div>
+              </div>
+              <p>As α increases, the images get more sharp, it acts as a sharpening factor.
+                α = 5 was about the most sharpening I could get without seeing too many negative affects.
+                The landscope image I chose to sharpen looks better with the more pronounced edges of the mountains and bushses.
+                The dark night image looks worse with sharpening, as the sharpening just adds noise
+                to the image without any increase in quality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Part 3: Anisotropic Diffusion</h2>
+        <div>
+          <div>
+            <h3>Question 1: Implementation of Anisotropic Diffusion</h3>
+            <div class="naive">
+              <span>
+                <figcaption>Original</figcaption>
+                <img src="images/aniso_1_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Exponential (K = 10, iters. = 5)</figcaption>
+                <img src="images/aniso_2_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Reciprocal (K = 10, iters. = 5)</figcaption>
+                <img src="images/aniso_3_k10_t5.png "/>
+              </span>
+            </div>
+            <div class="naive">
+              <span>
+                <figcaption>Original</figcaption>
+                <img src="images/aniso_1_k30_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Exponential (K = 30, iters. = 5)</figcaption>
+                <img src="images/aniso_2_k30_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Reciprocal (K = 30, iters. = 5)</figcaption>
+                <img src="images/aniso_3_k30_t5.png "/>
+              </span>
+            </div>
+            <div class="naive">
+              <span>
+                <figcaption>Original</figcaption>
+                <img src="images/aniso_4_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Exponential (K = 10, iters. = 5)</figcaption>
+                <img src="images/aniso_5_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Reciprocal (K = 10, iters. = 5)</figcaption>
+                <img src="images/aniso_6_k10_t5.png "/>
+              </span>
+            </div>
+            <div class="naive">
+              <span>
+                <figcaption>Original</figcaption>
+                <img src="images/aniso_4_k10_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Exponential (K = 30, iters. = 5)</figcaption>
+                <img src="images/aniso_5_K30_t5.png "/>
+              </span>
+              <span>
+                <figcaption>Reciprocal (K = 30, iters. = 5)</figcaption>
+                <img src="images/aniso_6_K30_t5.png "/>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
         <p><a href="../index.html">Back to Portfolio</a></p>
